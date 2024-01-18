@@ -1,0 +1,247 @@
+/* МОДАЛЬНЕ ВІКНО ХЕДЕР*/
+.backdrop {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  visibility: visible;
+  pointer-events: initial;
+  background-color: rgba(192, 40, 40, 0.2);
+  transition: opacity 250ms linear, visibility 250ms linear;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-100%, -100%);
+    // transition: opacity 2500ms linear;
+  }
+
+  &.is-hidden .modal {
+    transform: translate(-50%, 0) scale(0.8);
+  }
+}
+
+.modal {
+  position: absolute;
+  overflow: auto;
+  width: 280px;
+  height: 95%;
+  padding: 28px;
+  top: 2.5%;
+  left: 50%;
+  transform: translate(-50%, 0) scale(1);
+  transition: transform 250ms linear;
+  background: #fcfcfc;
+  border: 2px solid #f8d24e;
+  border-radius: 10px;
+
+  @include tablet {
+    width: 568px;
+    padding: 32px 54px;
+    height: 644px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: 'Seymour One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #131313;
+    @include tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    @include tablet {
+      top: 17px;
+      right: 17px;
+    }
+  }
+}
+
+.cards {
+  margin-top: 83px;
+  margin-bottom: 32px;
+  @include tablet {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 82px;
+    margin-left: auto;
+    margin-right: auto;
+    // padding-top: 95px;
+    padding-bottom: 20px;
+    width: 132px;
+    height: 136px;
+    border-radius: 10px;
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item:last-child {
+    background-color: #fcfcfc;
+    margin-bottom: 0;
+  }
+
+  .cards__item input[type='checkbox'] {
+    position: absolute;
+    top: -62px;
+    left: -2px;
+    width: 132px;
+    height: 190px;
+  }
+
+  &__item--bg1 {
+    border: 2px solid #96af8c;
+    filter: drop-shadow(0px 5.26027px 19.726px rgba(212, 20, 67, 0.1));
+    border-radius: 15px;
+  }
+
+  &__item--bg2 {
+    border: 2px solid #efd478;
+    box-shadow: 0px 5.26027px 19.726px rgba(212, 20, 67, 0.1);
+    border-radius: 15px;
+  }
+
+  &__item--bg3 {
+    border: 2px solid #d6936d;
+    filter: drop-shadow(0px 5.26027px 19.726px rgba(212, 20, 67, 0.1));
+    border-radius: 15.7808px;
+  }
+
+  #ice-cream:checked + &__label {
+    background-color: #96af8c;
+  }
+
+  #ice-coffee:checked + &__label {
+    background-color: #efd478;
+  }
+
+  #milkshakes:checked + &__label {
+    background-color: #d6936d;
+  }
+
+  &__item::before {
+    position: absolute;
+    content: '';
+    width: 132px;
+    height: 139px;
+    border-radius: 50%;
+    top: -62px;
+    left: -2px;
+  }
+
+  &__item--bg-ellipse1::before {
+    background: linear-gradient(
+        0deg,
+        rgba(156, 190, 143, 0.7),
+        rgba(156, 190, 143, 0.7)
+      ),
+      #d9d9d9;
+    box-shadow: 0px 5.34219px 20.0332px rgba(10, 136, 23, 0.25);
+  }
+
+  &__item--bg-ellipse2::before {
+    background: linear-gradient(
+        0deg,
+        rgba(248, 210, 78, 0.7),
+        rgba(248, 210, 78, 0.7)
+      ),
+      #d9d9d9;
+    box-shadow: 0px 5.40397px 20.2649px rgba(153, 114, 23, 0.25);
+  }
+
+  &__item--bg-ellipse3::before {
+    background: linear-gradient(
+        0deg,
+        rgba(213, 117, 63, 0.7),
+        rgba(213, 117, 63, 0.7)
+      ),
+      #d9d9d9;
+    box-shadow: 0px 5.41333px 20.3px rgba(0, 0, 0, 0.25);
+  }
+
+  &__img::after {
+    position: absolute;
+    content: '';
+    width: 132px;
+    height: 132px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    top: -62px;
+    left: -2px;
+  }
+
+  &__img--img1::after {
+    background-image: url(../images/kelsey-curtis@1x.jpg);
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/kelsey-curtis@2x.jpg);
+    }
+  }
+
+  &__img--img2::after {
+    background-image: url(../images/pariwat-pannium@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/pariwat-pannium@2x.jpg);
+    }
+  }
+
+  &__img--img3::after {
+    background-image: url(../images/victor-rutka@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/victor-rutka@2x.jpg);
+    }
+  }
+
+  &__label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 95px;
+    padding-bottom: 38px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: calc(20 / 16);
+    text-align: center;
+    text-transform: uppercase;
+    color: #131313;
+    transition: background-color 250ms;
+  }
+}
+
+@import '../base/_submit';

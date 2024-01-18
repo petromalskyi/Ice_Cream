@@ -1,0 +1,94 @@
+/* МОДАЛЬНЕ ВІКНО ABOUT*/
+.backdrop2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: rgba(192, 40, 40, 0.2);
+  transition: opacity 250ms linear;
+
+  &.is-hidden2 {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-100%, -100%);
+  }
+
+  &.is-hidden2 .modal2 {
+    transform: translate(-50%, 0) scale(0.8);
+  }
+}
+
+.modal2 {
+  position: absolute;
+  overflow: auto;
+  // overflow: hidden ;
+  width: 280px;
+  max-height: 90%;
+  padding: 28px 20px;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0) scale(1);
+  transition: transform 250ms linear;
+
+  background: #fcfcfc;
+  border: 2px solid #f8d24e;
+  border-radius: 10px;
+
+  @include tablet {
+    width: 568px;
+    padding: 32px 60px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: 'Seymour One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #131313;
+    @include tablet {
+      margin-bottom: 32px;
+      font-size: 20px;
+      line-height: calc(28 / 20);
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    @include tablet {
+      top: 18px;
+      right: 18px;
+    }
+  }
+
+  &__video {
+    margin-bottom: 20px;
+    width: 224px;
+    height: 199px;
+    @include tablet {
+      margin-bottom: 32px;
+      width: 448px;
+      height: 205px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #131313;
+  }
+}
